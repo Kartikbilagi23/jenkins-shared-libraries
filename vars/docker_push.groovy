@@ -5,8 +5,10 @@ withCredentials([usernamePassword(credentialsId: 'DockerHub',
 
     sh """
         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        docker push trainwithshubham/notes-app:latest
     """
 }
+
 
   sh "docker push ${dockerhubuser}/${Project}:${ImageTag}"
 }
